@@ -1,0 +1,5 @@
+Checks: 'clang-diagnostic-*,bugprone-*,modernize-*'
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+Checks: '-modernize-trailing-return-type,*'
+

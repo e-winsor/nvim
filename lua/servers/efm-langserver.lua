@@ -1,16 +1,22 @@
 return function(lspconfig, on_attach)
-	local luacheck = require("efmls-configs.linters.luacheck")
-	local stylua = require("efmls-configs.formatters.stylua")
+    local luacheck = require("efmls-configs.linters.luacheck")
+    local stylua = require("efmls-configs.formatters.stylua")
 
-	local black = require("efmls-configs.formatters.black")
-	local flake8 = require("efmls-configs.linters.flake8")
+    local black = require("efmls-configs.formatters.black")
+    local flake8 = require("efmls-configs.linters.flake8")
 
-	local shellcheck = require("efmls-configs.linters.shellcheck")
-	local shfmt = require("efmls-configs.formatters.shfmt")
+    local shellcheck = require("efmls-configs.linters.shellcheck")
+    local shfmt = require("efmls-configs.formatters.shfmt")
 
-    local clangformat = require("efmls-configs.formatters.clang_format")
+    local clangformat = {
+        formatCommand = "clang-format --style=file --fallback-style=none " ..
+            "--assume-filename=" .. vim.fn.expand("~/.config/nvim/.clang-format"),
+        formatStdin = true,
+    }
     local clangtidy = {
-        lintCommand = "clang-tidy --quiet --checks='clang-diagnostic-unused-variable' -- -std=c++17",
+        lintCommand = "clang-tidy --config="
+            .. vim.fn.expand("~/.config/nvim/.clang-tidy")
+            .. " --quiet --checks='clang-diagnostic-unused-variable' -- -std=c++17",
         lintStdin = true,
         lintFormats = { "%f:%l:%c: %m" },
         lintSource = "clang-tidy",
