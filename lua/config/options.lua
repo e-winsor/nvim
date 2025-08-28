@@ -14,9 +14,9 @@ vim.opt.cmdheight = 1 -- Command line height
 vim.opt.spelllang = { "en" } -- Set language for spellchecking
 
 -- Tabbing / Indentation
-vim.opt.tabstop = 4 -- Tab width
-vim.opt.shiftwidth = 4 -- Indent width
-vim.opt.softtabstop = 4 -- Soft tab stop
+vim.opt.tabstop = 2 -- Tab width
+vim.opt.shiftwidth = 2 -- Indent width
+vim.opt.softtabstop = 2 -- Soft tab stop
 vim.opt.expandtab = true -- Use spaces instead of tabs
 vim.opt.smartindent = true -- Smart auto-indenting
 vim.opt.autoindent = true -- Copy indent from current line
@@ -101,3 +101,8 @@ vim.opt.foldlevel = 99 -- Keep all folds open by default
 -- Split Behavior
 vim.opt.splitbelow = true -- Horizontal splits open below
 vim.opt.splitright = true -- Vertical splits open to the right
+
+-- Netrw settings
+vim.g.netrw_banner = 0 -- hide banner
+vim.g.netrw_browse_split = 0 -- open in same window
+vim.g.netrw_hide = 0 -- show hidden files
